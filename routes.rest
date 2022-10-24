@@ -1,0 +1,27 @@
+GET http://localhost:8082/api/players/
+
+###
+
+POST http://localhost:8082/api/players/
+Content-Type: application/json
+
+{
+    "name": "Kyle Pitts",
+    "position": "Tight End",
+    "team": "Atlanta Falcons",
+    "age": 25
+}
+
+###
+
+POST http://localhost:8082/api/players/
+Content-Type: application/json
+
+{
+    "name": "Christian McCaffery",
+    "position": "Running back",
+    "team": "San Francisco 49ers",
+    "age": 28
+}
+
+### 
