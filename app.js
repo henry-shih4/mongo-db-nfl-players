@@ -9,11 +9,11 @@ const playerRoutes = require("./routes/api/players");
 connectDB();
 
 app.use(express.json({ extended: false }));
+app.use(cors({ origin: true, credentials: true }));
 
 app.get("/", (req, res) => res.send("Hello world!"));
 
 app.use("/api/players", playerRoutes);
-
 
 const port = process.env.PORT || 8082;
 
