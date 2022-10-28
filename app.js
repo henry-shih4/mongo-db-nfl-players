@@ -5,7 +5,7 @@ const cors = require("cors");
 
 const app = express();
 const playerRoutes = require("./routes/api/players");
-
+const userRoutes = require('./routes/api/users')
 connectDB();
 
 app.use(express.json({ extended: false }));
@@ -14,6 +14,7 @@ app.use(cors({ origin: true, credentials: true }));
 app.get("/", (req, res) => res.send("Hello world!"));
 
 app.use("/api/players", playerRoutes);
+app.use('/api/users', userRoutes)
 
 const port = process.env.PORT || 8082;
 
