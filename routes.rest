@@ -2,13 +2,13 @@ GET http://localhost:8082/api/users/
 
 ###
 
-POST http://localhost:8082/api/users/
-Content-Type: application/json
+# POST http://localhost:8082/api/users/
+# Content-Type: application/json
 
-{
-    "username": "hen95",
-    "password": "nalanala",
-    "email": "hen@gmail.com"
-}
+# {
+#     "username": "ssong",
+#     "password": "password",
+#     "email": "ssong@gmail.com"
+# }
 
 ###
