@@ -1,6 +1,8 @@
 const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+
 const users = [
   {
     username: "ssong",
@@ -48,13 +50,26 @@ router.post("/login", async (req, res) => {
   const user = await User.findOne({ username: req.body.username });
 
   if (user === null) {
-    return res.status(400).send();
+    return res.status(400).send({ message: "username not found" });
   }
   try {
     if (await bcrypt.compare(req.body.password, user.password)) {
-      res.send("success");
+      const token = jwt.sign(
+        {
+          username: user.username,
+          userId: user._id,
+        },
+        "RANDOM-TOKEN",
+        { expiresIn: "24h" }
+      );
+      res.send({
+        message: "Login Successful",
+        username: user.username,
+        userId: user._id,
+        token,
+      });
     } else {
-      res.send("not allowed");
+      res.send("incorrect password");
     }
   } catch {
     res.status(500).send();
