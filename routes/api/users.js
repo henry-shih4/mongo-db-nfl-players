@@ -2,13 +2,7 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-
-const users = [
-  {
-    username: "ssong",
-    password: "password",
-  },
-];
+const auth = require("../../auth");
 
 // Load model
 const User = require("../../models/User");
@@ -17,14 +11,14 @@ const User = require("../../models/User");
 router.get("/test", (req, res) => res.send("user test!"));
 
 // @route get api/users/
-router.get("/", (req, res) => {
+router.get("/", auth, (req, res) => {
   User.find()
     .then((user) => res.json(user))
     .catch((err) => res.status(404).json({ nousersfound: "No users found" }));
 });
 
-// @route POST to api/users
-// add a new user to DB
+// @route POST to /users
+// register a new user to DB
 router.post("/", async (req, res) => {
   try {
     const salt = await bcrypt.genSalt(10);
