@@ -2,7 +2,8 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const auth = require("../../auth");
+const authUser = require("../../auth");
+const { authRole } = require("../../roleAuth");
 
 // Load model
 const User = require("../../models/User");
@@ -10,8 +11,13 @@ const User = require("../../models/User");
 // @route GET api/users/test
 router.get("/test", (req, res) => res.send("user test!"));
 
+// @route GET admin page
+router.get("/admin", (req, res) =>
+  res.send("admin page")
+);
+
 // @route get api/users/
-router.get("/", auth, (req, res) => {
+router.get("/", authUser, (req, res) => {
   User.find()
     .then((user) => res.json(user))
     .catch((err) => res.status(404).json({ nousersfound: "No users found" }));
@@ -27,6 +33,7 @@ router.post("/", async (req, res) => {
       username: req.body.username,
       password: hashedPassword,
       email: req.body.email,
+      role: req.body.role,
     };
     User.create(user);
     res.status(201).send();
