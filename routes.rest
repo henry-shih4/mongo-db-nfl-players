@@ -17,33 +17,29 @@ POST http://localhost:8082/users/login
 Content-Type: application/json
 
 {
-    "username": "ssong",
-    "password": "password"
+    "username": "henryshih",
+    "password": "henryshih"
 }
 
 ###
 
-POST http://localhost:8082/users
-Content-Type: application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNzb25nIiwidXNlcklkIjoiNjM1ZjRlMmJjZmQ1NjQ2NDg2OWQyNDhlIiwiaWF0IjoxNjY3MzI2MDA3LCJleHAiOjE2Njc0MTI0MDd9.3WLtVQashVt-le8Wje_pIDgvXOi1FmyUbx99sAefmOY
 
-{
-    "username": "admin1",
-    "password": "admin1",
-    "email": "admin1@nala.com",
-    "role": "ROLE.ADMIN"
 
-}
-
-###
 
 GET http://localhost:8082/users
 Content-Type: application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InNzb25nIiwidXNlcklkIjoiNjM1ZjRlMmJjZmQ1NjQ2NDg2OWQyNDhlIiwiaWF0IjoxNjY3MzI2MDA3LCJleHAiOjE2Njc0MTI0MDd9.3WLtVQashVt-le8Wje_pIDgvXOi1FmyUbx99sAefmOY
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMSIsInVzZXJJZCI6IjYzNjE2MWRlYjNkOGNhNjMzM2Q5Y2RjNSIsInJvbGUiOiJST0xFLkFETUlOIiwiaWF0IjoxNjY3MzMyMzgzLCJleHAiOjE2Njc0MTg3ODN9.j_PuwW0vdRoolrIGDl3prUBY38Jrp1zVG-uHOMmPy5k
 
 
 ###
 
+GET http://localhost:8082/users/admin
+Content-Type: application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMSIsInVzZXJJZCI6IjYzNjE2MWRlYjNkOGNhNjMzM2Q5Y2RjNSIsInJvbGUiOiJST0xFLkFETUlOIiwiaWF0IjoxNjY3MzMyMzgzLCJleHAiOjE2Njc0MTg3ODN9.j_PuwW0vdRoolrIGDl3prUBY38Jrp1zVG-uHOMmPy5k
+
+
+###
 
 GET http://localhost:8082/users/admin
 Content-Type: application/json
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbnJ5c2hpaCIsInVzZXJJZCI6IjYzNjAxZjkwYTUyMzg0MjJlNzViZDg1MCIsInJvbGUiOiJST0xFLkJBU0lDIiwiaWF0IjoxNjY3MzMyNTc0LCJleHAiOjE2Njc0MTg5NzR9.-N9B9ut0X9LpcS5Uq49jmrraKAdTBoNMSu9-qubqeb4

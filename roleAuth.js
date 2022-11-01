@@ -1,8 +1,8 @@
-function authRole(role) {
+function authRole(type) {
   return (req, res, next) => {
-    if (req.user.role !== role) {
+    if (req.user.role !== type) {
       res.status(401);
-      res.send("not authorized");
+      return res.send("not allowed");
     }
     next();
   };

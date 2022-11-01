@@ -12,7 +12,7 @@ const User = require("../../models/User");
 router.get("/test", (req, res) => res.send("user test!"));
 
 // @route GET admin page
-router.get("/admin", (req, res) =>
+router.get("/admin", authUser, authRole("ROLE.ADMIN"), (req, res) =>
   res.send("admin page")
 );
 
@@ -59,6 +59,7 @@ router.post("/login", async (req, res) => {
         {
           username: user.username,
           userId: user._id,
+          role: user.role,
         },
         "RANDOM-TOKEN",
         { expiresIn: "24h" }
@@ -67,6 +68,7 @@ router.post("/login", async (req, res) => {
         message: "Login Successful",
         username: user.username,
         userId: user._id,
+        role: user.role,
         token,
       });
     } else {
