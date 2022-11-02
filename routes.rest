@@ -2,14 +2,14 @@ GET http://localhost:8082/api/players
 
 ###
 
-# POST http://localhost:8082/api/users/
-# Content-Type: application/json
+POST http://localhost:8082/users/
+Content-Type: application/json
 
-# {
-#     "username": "ssong",
-#     "password": "password",
-#     "email": "ssong@gmail.com"
-# }
+{
+    "username": "ssong",
+    "password": "password",
+    "email": "ssong@gmail.com"
+}
 
 ###
 

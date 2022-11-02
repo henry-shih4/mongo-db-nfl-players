@@ -27,16 +27,24 @@ router.get("/", authUser, (req, res) => {
 // register a new user to DB
 router.post("/", async (req, res) => {
   try {
-    const salt = await bcrypt.genSalt(10);
-    const hashedPassword = await bcrypt.hash(req.body.password, salt);
-    const user = {
-      username: req.body.username,
-      password: hashedPassword,
-      email: req.body.email,
-      role: req.body.role,
-    };
-    User.create(user);
-    res.status(201).send();
+    if (await User.findOne({ username: req.body.username })) {
+      res.status(409).json({ conflict: "username already exists" });
+      console.log("username already exists");
+    } else if (await User.findOne({ email: req.body.email })) {
+      res.status(409).json({ conflict: "email already in use" });
+      console.log("email already in use");
+    } else {
+      const salt = await bcrypt.genSalt(10);
+      const hashedPassword = await bcrypt.hash(req.body.password, salt);
+      const user = {
+        username: req.body.username,
+        password: hashedPassword,
+        email: req.body.email,
+        role: req.body.role,
+      };
+      User.create(user);
+      res.status(201).send();
+    }
   } catch {
     res.status(500).send();
   }
