@@ -1,4 +1,4 @@
-GET http://localhost:8082/users
+GET http://localhost:8082/api/players
 
 ###
 
@@ -17,8 +17,8 @@ POST http://localhost:8082/users/login
 Content-Type: application/json
 
 {
-    "username": "henryshih",
-    "password": "henryshih"
+    "username": "admin1",
+    "password": "admin1"
 }
 
 ###
@@ -26,9 +26,9 @@ Content-Type: application/json
 
 
 
-GET http://localhost:8082/users
+GET http://localhost:8082/api/players/
 Content-Type: application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMSIsInVzZXJJZCI6IjYzNjE2MWRlYjNkOGNhNjMzM2Q5Y2RjNSIsInJvbGUiOiJST0xFLkFETUlOIiwiaWF0IjoxNjY3MzMyMzgzLCJleHAiOjE2Njc0MTg3ODN9.j_PuwW0vdRoolrIGDl3prUBY38Jrp1zVG-uHOMmPy5k
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbnJ5c2hpaCIsInVzZXJJZCI6IjYzNjAxZjkwYTUyMzg0MjJlNzViZDg1MCIsInJvbGUiOiJST0xFLkJBU0lDIiwiaWF0IjoxNjY3MzQ5NDUwLCJleHAiOjE2Njc0MzU4NTB9.niN7iggT1TgFYTkRz6hbOtp3TPLhYygUDv0VpcW99GM
 
 
 ###
@@ -40,6 +40,18 @@ Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWlu
 
 ###
 
-GET http://localhost:8082/users/admin
+POST http://localhost:8082/api/players/
 Content-Type: application/json
-Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImhlbnJ5c2hpaCIsInVzZXJJZCI6IjYzNjAxZjkwYTUyMzg0MjJlNzViZDg1MCIsInJvbGUiOiJST0xFLkJBU0lDIiwiaWF0IjoxNjY3MzMyNTc0LCJleHAiOjE2Njc0MTg5NzR9.-N9B9ut0X9LpcS5Uq49jmrraKAdTBoNMSu9-qubqeb4
+Authorization: jwt eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6ImFkbWluMSIsInVzZXJJZCI6IjYzNjE2MWRlYjNkOGNhNjMzM2Q5Y2RjNSIsInJvbGUiOiJST0xFLkFETUlOIiwiaWF0IjoxNjY3MzQ5NjEzLCJleHAiOjE2Njc0MzYwMTN9.QFj6Mqwi-C7m_LtZ8SVEiB2I60LavjBUEBw76tf1JKc
+
+{
+    "name": "Henry Shih", 
+    "position": "RB",
+    "team": "Miami Dolphins",
+    "age": 27
+}
+
+###
+
+
+

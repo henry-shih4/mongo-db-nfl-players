@@ -13,11 +13,6 @@ app.use(cors({ origin: true, credentials: true }));
 
 app.get("/", (req, res) => res.send("Hello world!"));
 
-// authentication endpoint
-app.get("/auth-endpoint", auth, (request, response) => {
-  response.json({ message: "You are authorized to access me" });
-});
-
 app.use("/api/players", auth, playerRoutes);
 app.use("/users", userRoutes);
 
