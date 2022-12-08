@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const config = require("config");
-const db = config.get("mongoURI");
+const db = config.get("DATABASE_URL");
 
 const connectDB = async () => {
   try {
@@ -15,10 +15,4 @@ const connectDB = async () => {
   }
 };
 
-async function listDatabases(client) {
-  databasesList = await client.db().admin().listDatabases();
-
-  console.log("Databases:");
-  databasesList.databases.forEach((db) => console.log(` - ${db.name}`));
-}
 module.exports = connectDB;
