@@ -11,7 +11,7 @@ const auth = require("./auth");
 app.use(express.json({ extended: false }));
 app.use(cors({ origin: true, credentials: true }));
 
-app.get("/", (req, res) => res.send("Hello world!"));
+app.get("/", (req, res) => res.send("NFL App Database"));
 
 app.use("/api/players", auth, playerRoutes);
 app.use("/users", userRoutes);
